@@ -1,0 +1,359 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep-space: #030014;
+  --color-slate-200: #E2E8F0;
+  --color-cyber-cyan: #66FCF1;
+  --color-electric-purple: #A855F7;
+
+  --font-family-heading: 'Space Grotesk', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+}
+
+@keyframes gradient-pulse {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.6;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(102, 252, 241, 0.3), 0 0 40px rgba(168, 85, 247, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(102, 252, 241, 0.5), 0 0 80px rgba(168, 85, 247, 0.4);
+  }
+}
+
+@keyframes text-glow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(102, 252, 241, 0.5), 0 0 40px rgba(102, 252, 241, 0.3);
+  }
+
+  50% {
+    text-shadow: 0 0 40px rgba(102, 252, 241, 0.8), 0 0 80px rgba(102, 252, 241, 0.5);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--color-deep-space);
+  color: var(--color-slate-200);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+}
+
+.animate-gradient-pulse {
+  animation: gradient-pulse 8s ease-in-out infinite;
+  background-size: 400% 400%;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-text-glow {
+  animation: text-glow 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.animate-fade-out {
+  opacity: 0 !important;
+  transform: translateY(-20px) !important;
+}
+
+/* Random slide-in animations for cards */
+.slide-card {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-card.from-left {
+  transform: translateX(-100px);
+}
+
+.slide-card.from-right {
+  transform: translateX(100px);
+}
+
+.slide-card.from-top {
+  transform: translateY(-100px);
+}
+
+.slide-card.from-bottom {
+  transform: translateY(100px);
+}
+
+.slide-card.visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+/* 3D Flip Animation for Timeline */
+.timeline-flip-container {
+  perspective: 1000px;
+}
+
+.timeline-flip-card {
+  opacity: 0;
+  transform-style: preserve-3d;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.timeline-flip-card.flip-left {
+  transform: rotateY(90deg);
+  transform-origin: right center;
+}
+
+.timeline-flip-card.flip-right {
+  transform: rotateY(-90deg);
+  transform-origin: left center;
+}
+
+.timeline-flip-card.visible {
+  opacity: 1 !important;
+  transform: rotateY(0deg) !important;
+}
+
+.glass {
+  background: rgba(3, 0, 20, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 252, 241, 0.1);
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-cyber-cyan), var(--color-electric-purple));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.code-editor {
+  background: linear-gradient(180deg, #1e1e2e 0%, #11111b 100%);
+  border: 1px solid rgba(102, 252, 241, 0.2);
+  font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.code-editor-header {
+  background: rgba(30, 30, 46, 0.8);
+  border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+}
+
+.neon-text {
+  background: linear-gradient(135deg, var(--color-cyber-cyan), var(--color-electric-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(102, 252, 241, 0.4), 0 0 60px rgba(168, 85, 247, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.hero-photo {
+  box-shadow:
+    0 0 40px rgba(102, 252, 241, 0.2),
+    0 0 80px rgba(168, 85, 247, 0.15),
+    inset 0 0 60px rgba(0, 0, 0, 0.3);
+}
+
+.hero-photo:hover {
+  box-shadow:
+    0 0 60px rgba(102, 252, 241, 0.4),
+    0 0 120px rgba(168, 85, 247, 0.3),
+    inset 0 0 60px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+  color: var(--color-slate-200);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-cyber-cyan);
+}
+
+/* Career Path Buttons */
+.career-path-btn {
+  background: rgba(3, 0, 20, 0.5);
+  border: 1px solid rgba(102, 252, 241, 0.2);
+  color: var(--color-slate-200);
+}
+
+.career-path-btn:hover {
+  border-color: rgba(102, 252, 241, 0.5);
+  background: rgba(102, 252, 241, 0.1);
+}
+
+.career-path-btn.active {
+  background: linear-gradient(135deg, var(--color-cyber-cyan), var(--color-electric-purple));
+  border-color: transparent;
+  color: var(--color-deep-space);
+  box-shadow: 0 0 20px rgba(102, 252, 241, 0.4), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.career-path-btn.active:hover {
+  box-shadow: 0 0 30px rgba(102, 252, 241, 0.6), 0 0 60px rgba(168, 85, 247, 0.3);
+}
+
+.career-path-content {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Backgrounds for Visual Separation */
+.section-alt {
+  background: linear-gradient(180deg, rgba(102, 252, 241, 0.02) 0%, transparent 50%, rgba(168, 85, 247, 0.02) 100%);
+}
+
+.section-dark {
+  background: linear-gradient(180deg, rgba(3, 0, 20, 0.8) 0%, rgba(10, 5, 30, 0.9) 50%, rgba(3, 0, 20, 0.8) 100%);
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, rgba(102, 252, 241, 0.03) 0%, transparent 50%, rgba(168, 85, 247, 0.03) 100%);
+}
+
+/* Section Dividers */
+.section-divider-top {
+  position: relative;
+}
+
+.section-divider-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-cyber-cyan), transparent);
+}
+
+.section-divider-glow {
+  position: relative;
+}
+
+.section-divider-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(102, 252, 241, 0.3) 20%, rgba(168, 85, 247, 0.3) 80%, transparent 100%);
+}

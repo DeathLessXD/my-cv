@@ -1,0 +1,90 @@
+<section id="automation" class="relative py-24 md:py-32 section-dark section-divider-glow">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="text-4xl md:text-5xl font-bold font-heading mb-4">
+        <span class="neon-text" data-i18n="automation.title">Automation Lab</span>
+      </h2>
+      <p class="text-slate-200/60 text-lg" data-i18n="automation.subtitle">Gdzie pomysły stają się automatami</p>
+    </div>
+
+    <div class="code-editor rounded-2xl overflow-hidden shadow-2xl animate-on-scroll">
+      <div class="code-editor-header px-4 py-3 flex items-center gap-3">
+        <div class="flex gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-500"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500"></div>
+        </div>
+        <div class="flex-1 text-center">
+          <span class="text-slate-200/60 text-sm">automation-workflow.js</span>
+        </div>
+        <div class="flex gap-2">
+          <span class="px-2 py-1 rounded bg-cyber-cyan/20 text-cyber-cyan text-xs">Chrome Extension</span>
+          <span class="px-2 py-1 rounded bg-electric-purple/20 text-electric-purple text-xs">AI Agent</span>
+        </div>
+      </div>
+
+      <div class="p-6 md:p-8 text-sm md:text-base leading-relaxed overflow-x-auto">
+        <pre class="text-slate-200/90"><code><span class="text-electric-purple">// Podejście Rafała do automatyzacji</span>
+
+<span class="text-cyber-cyan">const</span> <span class="text-slate-200">traditionalApproach</span> = {
+  <span class="text-electric-purple">task</span>: <span class="text-green-400">"Powtarzalne zadania"</span>,
+  <span class="text-electric-purple">method</span>: <span class="text-green-400">"Copy-paste, ręczna praca"</span>,
+  <span class="text-electric-purple">result</span>: <span class="text-red-400">"😴 Znudzony zespół"</span>
+};
+
+<span class="text-cyber-cyan">const</span> <span class="text-slate-200">aiAugmentedApproach</span> = {
+  <span class="text-electric-purple">task</span>: <span class="text-green-400">"Te same zadania"</span>,
+  <span class="text-electric-purple">method</span>: <span class="text-green-400">"Chrome Extension + AI Agent"</span>,
+  <span class="text-electric-purple">result</span>: <span class="text-cyber-cyan">"🚀 Kreatywny zespół"</span>
+};
+
+<span class="text-cyber-cyan">function</span> <span class="text-yellow-400">transformTeam</span>(<span class="text-slate-200">team</span>) {
+  <span class="text-electric-purple">// Krok 1: Identyfikacja monotonii</span>
+  <span class="text-cyber-cyan">const</span> boringTasks = team.tasks.<span class="text-yellow-400">filter</span>(t => t.isRepetitive);
+  
+  <span class="text-electric-purple">// Krok 2: Automatyzacja</span>
+  boringTasks.<span class="text-yellow-400">forEach</span>(task => {
+    <span class="text-cyan-400">createChromeExtension</span>(task);
+    <span class="text-cyan-400">deployAIAgent</span>(task);
+  });
+  
+  <span class="text-electric-purple">// Krok 3: Uwolnienie kreatywności</span>
+  <span class="text-cyber-cyan">return</span> team.<span class="text-yellow-400">map</span>(member => ({
+    ...member,
+    <span class="text-electric-purple">focus</span>: <span class="text-green-400">"Innowacja i rozwój"</span>,
+    <span class="text-electric-purple">satisfaction</span>: <span class="text-cyber-cyan">Infinity</span>
+  }));
+}</code></pre>
+      </div>
+
+      <div class="border-t border-cyber-cyan/20 px-6 py-4 flex flex-wrap gap-4 justify-between items-center">
+        <div class="flex items-center gap-2 text-green-400 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>No errors • Team satisfaction: 100%</span>
+        </div>
+        <div class="text-slate-200/60 text-sm">
+          Powered by <span class="text-cyber-cyan">AI Augmented Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6 animate-on-scroll">
+      <div class="glass rounded-xl p-6 text-center hover-glow transition-all duration-300">
+        <div id="stat-percent" class="text-4xl font-bold neon-text mb-2 stat-counter" data-target="80" data-suffix="%">
+          0%</div>
+        <p class="text-slate-200/70 text-sm" data-i18n="automation.stat1">Redukcja monotonnych zadań</p>
+      </div>
+      <div class="glass rounded-xl p-6 text-center hover-glow transition-all duration-300">
+        <div id="stat-multiplier" class="text-4xl font-bold neon-text mb-2 stat-counter" data-target="5"
+          data-suffix="x">0x</div>
+        <p class="text-slate-200/70 text-sm" data-i18n="automation.stat2">Wzrost satysfakcji zespołu</p>
+      </div>
+      <div class="glass rounded-xl p-6 text-center hover-glow transition-all duration-300">
+        <div id="stat-infinity" class="text-4xl font-bold neon-text mb-2 stat-counter" data-target="infinity">0</div>
+        <p class="text-slate-200/70 text-sm" data-i18n="automation.stat3">Potencjał kreatywności</p>
+      </div>
+    </div>
+  </div>
+</section>

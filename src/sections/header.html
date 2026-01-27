@@ -1,0 +1,59 @@
+<header class="fixed top-0 left-0 right-0 z-50 glass transition-colors duration-300">
+  <nav class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <a href="#" class="group flex items-center gap-1 font-heading">
+        <span class="text-xl font-bold text-cyber-cyan group-hover:text-white transition-colors">Rafał</span>
+        <span class="text-xl font-light text-slate-200 group-hover:text-cyber-cyan transition-colors">Kobus</span>
+        <span class="ml-1 w-2 h-2 rounded-full bg-electric-purple animate-pulse"></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#about" class="nav-link" data-i18n="nav.about">O mnie</a>
+        <a href="#timeline" class="nav-link" data-i18n="nav.experience">Doświadczenie</a>
+        <a href="#manifesto" class="nav-link" data-i18n="nav.manifesto">Manifesto</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Umiejętności</a>
+        <a href="#automation" class="nav-link" data-i18n="nav.automation">Automation Lab</a>
+        <a href="#contact"
+          class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyber-cyan to-electric-purple text-deep-space font-semibold hover:opacity-90 transition-opacity"
+          data-i18n="nav.contact">
+          Kontakt
+        </a>
+
+        <div class="flex items-center gap-3 ml-2 pl-4 border-l border-slate-200/20">
+          <button id="lang-toggle"
+            class="flex items-center gap-1 px-2 py-1 rounded text-sm font-medium text-slate-200 hover:text-cyber-cyan transition-colors"
+            title="Switch language">
+            <span id="current-lang">PL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="lang-toggle-mobile" class="p-2 text-slate-200 hover:text-cyber-cyan transition-colors">
+          <span class="text-sm font-medium" id="current-lang-mobile">PL</span>
+        </button>
+        <button id="mobile-menu-btn" class="text-slate-200 p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-cyber-cyan/20 pt-4">
+      <div class="flex flex-col gap-4">
+        <a href="#about" class="nav-link" data-i18n="nav.about">O mnie</a>
+        <a href="#timeline" class="nav-link" data-i18n="nav.experience">Doświadczenie</a>
+        <a href="#manifesto" class="nav-link" data-i18n="nav.manifesto">Manifesto</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Umiejętności</a>
+        <a href="#automation" class="nav-link" data-i18n="nav.automation">Automation Lab</a>
+        <a href="#contact" class="text-cyber-cyan font-semibold" data-i18n="nav.contact">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+</header>
