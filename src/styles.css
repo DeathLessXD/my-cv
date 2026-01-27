@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-deep-space: #030014;
   --color-slate-200: #E2E8F0;
   --color-cyber-cyan: #66FCF1;
