@@ -110,6 +110,10 @@ const translations = {
     'about.stats.teams': 'Zarządzanych zespołów',
     'about.stats.countries': 'Krajów we współpracy',
 
+    // Publications
+    'publications.title': 'Publikacje',
+    'publications.subtitle': 'Moje wpisy na LinkedIn',
+
     // Footer
     'footer.title': 'Połączmy się',
     'footer.subtitle': 'Zainteresowany współpracą? Porozmawiajmy!',
@@ -224,6 +228,10 @@ const translations = {
     'about.stats.experience': 'Years of experience',
     'about.stats.teams': 'Teams managed',
     'about.stats.countries': 'Countries in collaboration',
+
+    // Publications
+    'publications.title': 'Publications',
+    'publications.subtitle': 'My LinkedIn posts',
 
     // Footer
     'footer.title': 'Let\'s Connect',
@@ -512,15 +520,22 @@ document.addEventListener('DOMContentLoaded', () => {
       this.animationId = null;
       this.mouse = { x: null, y: null };
 
-      this.canvas.style.cssText = 'position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;';
+      this.canvas.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;';
       this.container.style.position = 'relative';
+      this.container.style.overflow = 'hidden';
       this.container.insertBefore(this.canvas, this.container.firstChild);
 
-      this.resize();
-      this.init();
-      this.animate();
+      // Delay initialization to ensure section is fully rendered
+      setTimeout(() => {
+        this.resize();
+        this.init();
+        this.animate();
+      }, 100);
 
-      window.addEventListener('resize', () => this.resize());
+      window.addEventListener('resize', () => {
+        this.resize();
+        this.init();
+      });
 
       // Track mouse position relative to container
       this.container.addEventListener('mousemove', (e) => {
@@ -537,16 +552,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resize() {
       const rect = this.container.getBoundingClientRect();
-      this.canvas.width = rect.width;
-      this.canvas.height = rect.height;
+      const height = Math.max(rect.height, this.container.scrollHeight, this.container.offsetHeight);
+      const width = rect.width;
+      const dpr = window.devicePixelRatio || 1;
+
+      this.canvas.width = width * dpr;
+      this.canvas.height = height * dpr;
+      this.canvas.style.width = width + 'px';
+      this.canvas.style.height = height + 'px';
+      this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+      this.ctx.scale(dpr, dpr);
+      this.displayWidth = width;
+      this.displayHeight = height;
     }
 
     init() {
       this.particles = [];
+      const width = this.displayWidth || this.canvas.width;
+      const height = this.displayHeight || this.canvas.height;
       for (let i = 0; i < this.particleCount; i++) {
         this.particles.push({
-          x: Math.random() * this.canvas.width,
-          y: Math.random() * this.canvas.height,
+          x: Math.random() * width,
+          y: Math.random() * height,
           vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5,
           radius: Math.random() * 3 + 1,
@@ -593,8 +620,10 @@ document.addEventListener('DOMContentLoaded', () => {
         p.y += p.vy;
 
         // Bounce off edges
-        if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
+        const width = this.displayWidth || this.canvas.width;
+        const height = this.displayHeight || this.canvas.height;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
 
         // Draw particle
         this.ctx.beginPath();
@@ -634,11 +663,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize neural network animation on specific sections
-  const sectionsWithAnimation = ['hero', 'timeline', 'skills'];
+  const sectionsWithAnimation = ['hero', 'timeline', 'skills', 'publications'];
   sectionsWithAnimation.forEach(sectionId => {
     const section = document.getElementById(sectionId);
     if (section) {
       new NeuralNetworkAnimation(section);
     }
   });
+
+  // Initialize Owl Carousel for Publications
+  if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+    jQuery('.publications-carousel').owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 20,
+      nav: false,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      smartSpeed: 600,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn'
+    });
+
+    // Custom navigation buttons
+    const pubPrev = document.getElementById('pub-prev');
+    const pubNext = document.getElementById('pub-next');
+    const carousel = jQuery('.publications-carousel');
+
+    if (pubPrev) {
+      pubPrev.addEventListener('click', () => carousel.trigger('prev.owl.carousel'));
+    }
+    if (pubNext) {
+      pubNext.addEventListener('click', () => carousel.trigger('next.owl.carousel'));
+    }
+  }
 });

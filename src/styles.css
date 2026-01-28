@@ -357,3 +357,183 @@ h6 {
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(102, 252, 241, 0.3) 20%, rgba(168, 85, 247, 0.3) 80%, transparent 100%);
 }
+
+/* Publications Carousel Styles */
+.publications-carousel {
+  overflow: hidden;
+}
+
+.publications-carousel .owl-stage-outer {
+  overflow: visible;
+}
+
+.publication-slide {
+  padding: 0 1rem;
+}
+
+.pub-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1rem;
+  min-height: 400px;
+}
+
+@media (max-width: 768px) {
+  .pub-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+.pub-big,
+.pub-small {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.pub-big {
+  height: 400px;
+}
+
+.pub-small-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 400px;
+}
+
+.pub-small {
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 768px) {
+  .pub-big {
+    height: 250px;
+  }
+
+  .pub-small-stack {
+    height: auto;
+  }
+
+  .pub-small {
+    height: 150px;
+  }
+}
+
+.pub-big img,
+.pub-small img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Placeholder gradient for missing images */
+.pub-big,
+.pub-small {
+  background: linear-gradient(135deg, rgba(102, 252, 241, 0.1) 0%, rgba(3, 0, 20, 0.8) 50%, rgba(168, 85, 247, 0.1) 100%);
+}
+
+.pub-big::before,
+.pub-small::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(102, 252, 241, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.pub-big img,
+.pub-small img {
+  z-index: 1;
+}
+
+.pub-big:hover img,
+.pub-small:hover img {
+  transform: scale(1.05);
+}
+
+.pub-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(102, 252, 241, 0.1), rgba(168, 85, 247, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: var(--color-cyber-cyan);
+}
+
+.pub-big:hover .pub-overlay,
+.pub-small:hover .pub-overlay {
+  opacity: 1;
+}
+
+/* Override hover-glow for publications - more subtle */
+.pub-big.hover-glow:hover,
+.pub-small.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(102, 252, 241, 0.3), 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+/* Owl Carousel Theme Overrides */
+.publications-carousel .owl-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.publications-carousel .owl-dot span {
+  width: 10px;
+  height: 10px;
+  background: rgba(102, 252, 241, 0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.publications-carousel .owl-dot.active span {
+  background: var(--color-cyber-cyan);
+  box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+}
+
+/* Image position classes */
+.pub-pos-bottom {
+  object-position: center bottom !important;
+}
+
+.pub-pos-top {
+  object-position: center top !important;
+}
+
+/* Placeholder content for missing images */
+.pub-placeholder .placeholder-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.pub-placeholder .placeholder-text {
+  color: rgba(102, 252, 241, 0.4);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Fix publications section for full-height canvas */
+#publications {
+  overflow: hidden;
+}
