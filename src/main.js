@@ -114,6 +114,13 @@ const translations = {
     'publications.title': 'Publikacje',
     'publications.subtitle': 'Moje wpisy na LinkedIn',
 
+    // Phone Modal
+    'phone.hidden': 'Kliknij aby zobaczyć numer',
+    'phone.modal.title': 'Kontakt telefoniczny',
+    'phone.modal.message': 'Preferuję kontakt mailowy. Numer telefonu podam po nawiązaniu kontaktu przez e-mail.',
+    'phone.modal.email.cta': 'Napisz e-mail',
+    'phone.modal.close': 'Zamknij',
+
     // Footer
     'footer.title': 'Połączmy się',
     'footer.subtitle': 'Zainteresowany współpracą? Porozmawiajmy!',
@@ -233,6 +240,13 @@ const translations = {
     'publications.title': 'Publications',
     'publications.subtitle': 'My LinkedIn posts',
 
+    // Phone Modal
+    'phone.hidden': 'Click to reveal number',
+    'phone.modal.title': 'Phone Contact',
+    'phone.modal.message': 'I prefer email contact. I will share my phone number after initial email communication.',
+    'phone.modal.email.cta': 'Send e-mail',
+    'phone.modal.close': 'Close',
+
     // Footer
     'footer.title': 'Let\'s Connect',
     'footer.subtitle': 'Interested in collaboration? Let\'s talk!',
@@ -278,6 +292,43 @@ document.addEventListener('DOMContentLoaded', () => {
   // Language toggle buttons
   document.getElementById('lang-toggle')?.addEventListener('click', toggleLanguage);
   document.getElementById('lang-toggle-mobile')?.addEventListener('click', toggleLanguage);
+
+  // Phone modal functionality
+  const phoneRevealBtn = document.getElementById('phone-reveal-btn');
+  const phoneModal = document.getElementById('phone-modal');
+  const phoneModalClose = document.getElementById('phone-modal-close');
+
+  if (phoneRevealBtn && phoneModal) {
+    phoneRevealBtn.addEventListener('click', () => {
+      phoneModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    });
+  }
+
+  if (phoneModalClose && phoneModal) {
+    phoneModalClose.addEventListener('click', () => {
+      phoneModal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore scroll
+    });
+  }
+
+  // Close modal on overlay click
+  if (phoneModal) {
+    phoneModal.addEventListener('click', (e) => {
+      if (e.target === phoneModal) {
+        phoneModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && phoneModal && !phoneModal.classList.contains('hidden')) {
+      phoneModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
 
   // Career path toggle buttons
   document.querySelectorAll('.career-path-btn').forEach(btn => {
