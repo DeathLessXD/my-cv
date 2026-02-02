@@ -43,6 +43,8 @@ const translations = {
     'skills.leadership.desc': 'Budowanie i prowadzenie zespołów dev/PM',
     'skills.chrome.title': 'Chrome Extensions',
     'skills.chrome.desc': 'Tworzenie rozszerzeń automatyzujących workflow',
+    'skills.lowcode.title': 'Low-Code Orchestration',
+    'skills.lowcode.desc': 'Budowa zaawansowanych workflow automatyzujących procesy biznesowe z pełną kontrolą Human-in-the-Loop.',
 
     // Automation Lab
     'automation.title': 'Automation Lab',
@@ -50,6 +52,16 @@ const translations = {
     'automation.stat1': 'Redukcja monotonnych zadań',
     'automation.stat2': 'Wzrost satysfakcji zespołu',
     'automation.stat3': 'Potencjał kreatywności',
+    'automation.casestudy.title': 'Live Deployments',
+    'automation.casestudy.subtitle': 'Prawdziwe projekty w akcji',
+    'automation.casestudy.email.title': 'Smart Email AI Agent',
+    'automation.casestudy.email.intro': 'Autonomiczny system obsługi zapytań z pełną weryfikacją (Human-in-the-Loop).',
+    'automation.casestudy.email.logic.label': 'Logika:',
+    'automation.casestudy.email.logic.text': 'Klasyfikacja intencji (Lead / Rekrutacja / Spam) przez model GPT-4o.',
+    'automation.casestudy.email.security.label': 'Bezpieczeństwo:',
+    'automation.casestudy.email.security.text': 'System generuje draft odpowiedzi, ale wstrzymuje wysyłkę do momentu zatwierdzenia przez człowieka.',
+    'automation.casestudy.email.org.label': 'Organizacja:',
+    'automation.casestudy.email.org.text': 'Automatyczne tagowanie i kategoryzacja w Gmailu.',
 
     // Timeline
     'timeline.title': 'Doświadczenie',
@@ -169,6 +181,8 @@ const translations = {
     'skills.leadership.desc': 'Building and leading dev/PM teams',
     'skills.chrome.title': 'Chrome Extensions',
     'skills.chrome.desc': 'Creating extensions that automate workflows',
+    'skills.lowcode.title': 'Low-Code Orchestration',
+    'skills.lowcode.desc': 'Building advanced workflows automating business processes with full Human-in-the-Loop control.',
 
     // Automation Lab
     'automation.title': 'Automation Lab',
@@ -176,6 +190,16 @@ const translations = {
     'automation.stat1': 'Reduction of monotonous tasks',
     'automation.stat2': 'Increase in team satisfaction',
     'automation.stat3': 'Creativity potential',
+    'automation.casestudy.title': 'Live Deployments',
+    'automation.casestudy.subtitle': 'Real projects in action',
+    'automation.casestudy.email.title': 'Smart Email AI Agent',
+    'automation.casestudy.email.intro': 'Autonomous query handling system with full verification (Human-in-the-Loop).',
+    'automation.casestudy.email.logic.label': 'Logic:',
+    'automation.casestudy.email.logic.text': 'Intent classification (Lead / Recruitment / Spam) via GPT-4o model.',
+    'automation.casestudy.email.security.label': 'Security:',
+    'automation.casestudy.email.security.text': 'System generates draft response, but holds sending until approved by human.',
+    'automation.casestudy.email.org.label': 'Organization:',
+    'automation.casestudy.email.org.text': 'Automatic tagging and categorization in Gmail.',
 
     // Timeline
     'timeline.title': 'Experience',
