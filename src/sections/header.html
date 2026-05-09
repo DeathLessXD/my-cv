@@ -33,27 +33,33 @@
         </div>
       </div>
 
+      <!-- Mobile: Lang toggle + Hamburger -->
       <div class="flex items-center gap-2 md:hidden">
         <button id="lang-toggle-mobile" class="p-2 text-slate-200 hover:text-cyber-cyan transition-colors">
           <span class="text-sm font-medium" id="current-lang-mobile">PL</span>
         </button>
-        <button id="mobile-menu-btn" class="text-slate-200 p-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button id="mobile-menu-btn" class="text-slate-200 p-2 relative z-50" aria-label="Menu" aria-expanded="false">
+          <div class="flex flex-col gap-[6px]">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
         </button>
-      </div>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-cyber-cyan/20 pt-4">
-      <div class="flex flex-col gap-4">
-        <a href="#about" class="nav-link" data-i18n="nav.about">O mnie</a>
-        <a href="#timeline" class="nav-link" data-i18n="nav.experience">Doświadczenie</a>
-        <a href="#manifesto" class="nav-link" data-i18n="nav.manifesto">Manifesto</a>
-        <a href="#skills" class="nav-link" data-i18n="nav.skills">Umiejętności</a>
-        <a href="#automation" class="nav-link" data-i18n="nav.automation">Automation Lab</a>
-        <a href="#contact" class="text-cyber-cyan font-semibold" data-i18n="nav.contact">Kontakt</a>
       </div>
     </div>
   </nav>
 </header>
+
+<!-- Mobile Menu Overlay (outside header for proper z-index stacking) -->
+<div id="mobile-menu" class="mobile-menu-overlay md:hidden">
+  <nav class="flex flex-col items-center gap-6">
+    <a href="#about" class="nav-link" data-i18n="nav.about">O mnie</a>
+    <a href="#timeline" class="nav-link" data-i18n="nav.experience">Doświadczenie</a>
+    <a href="#manifesto" class="nav-link" data-i18n="nav.manifesto">Manifesto</a>
+    <a href="#skills" class="nav-link" data-i18n="nav.skills">Umiejętności</a>
+    <a href="#automation" class="nav-link" data-i18n="nav.automation">Automation Lab</a>
+    <a href="#contact"
+      class="mobile-menu-contact mt-4 px-8 py-3 rounded-xl bg-gradient-to-r from-cyber-cyan to-electric-purple text-deep-space font-bold text-lg hover:opacity-90 transition-opacity"
+      data-i18n="nav.contact">Kontakt</a>
+  </nav>
+</div>

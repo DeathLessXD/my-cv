@@ -376,17 +376,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  let mobileMenuOpen = false;
+
+  function openMobileMenu() {
+    mobileMenuOpen = true;
+    mobileMenu.classList.add('active');
+    mobileMenuBtn.classList.add('menu-open');
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileMenuOpen = false;
+    mobileMenu.classList.remove('active');
+    mobileMenuBtn.classList.remove('menu-open');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
 
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      if (mobileMenuOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
 
     // Close menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+        closeMobileMenu();
       });
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        closeMobileMenu();
+      }
     });
   }
 
